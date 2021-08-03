@@ -19,7 +19,7 @@ Each type of code challenge has slightly different instructions. Please refer to
     ```javascript
     class LinkedList {
       constructor() {
-        // code
+        // code ...
       }
 
       methodName() {
