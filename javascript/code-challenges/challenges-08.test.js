@@ -56,10 +56,11 @@ let characters = [
 
 const sortByChildren = (charArray) => {
   // Solution code here...
-  charArray.sort( (a,b) => a.children.length - b.children.length)
+  charArray.sort((a,b) => {
+    return a.children.length - b.children.length;
+  });
   return charArray;
 };
-
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
 
@@ -69,9 +70,9 @@ Write a function named containsW that takes in a string. This function should us
 
 const containsW = (str) => {
   // Solution code here...
-  let regex = /w/g;
-  let result = regex.test(str);
-  return result;
+  let regex=/w/g;
+  let res=regex.test(str);
+  return res;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -88,7 +89,7 @@ For example:
 
 const isNum = (input) => {
   // Solution code here...
-  let regex = /[0-9]/g;
+  let regex = /(\d)/g;
   let result = regex.test(input);
   return result;
 };
@@ -117,9 +118,10 @@ Return an array containing all the matches.
 
 const isCapitalized = (str) => {
   // Solution code here...
-  let newArray= arr.filter(value => 
-    value.match(/^[A-J]/g));
-   return newArray;
+  let regex=/\b[A-Z][a-z]+/g;
+  let res=str.match(regex)|| [];
+  return res;
+  
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -130,12 +132,9 @@ Write a function named citiesAtoJ that takes in an array of city names and uses 
 
 const citiesAtoJ = (arr) => {
   // Solution code here...
-  let regex = /[A-Z]\w+\b/g;
-  let arr = str.match(regex)
-  if(!arr){
-    return []
-  }
-  return arr;
+  let regex=/^[A-J]/
+  return arr.filter(element=>regex.test(element));
+
 };
 
 /* ------------------------------------------------------------------------------------------------
