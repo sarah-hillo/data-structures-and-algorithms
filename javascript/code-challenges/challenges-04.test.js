@@ -22,12 +22,11 @@ function lower(str) {
 }
 
 const updateAnimal = (arr, callback) => {
-  let nweArr=[];
-  arr.forEach(value=>{
-    newArr.push(callback(value));
+  let newArr = [];
+  arr.forEach(element=>{
+    newArr.push(callback(element))
   })
-  return newArr;
-  
+return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -94,15 +93,9 @@ For example, ['Alphabet', 'Zebra', 'alphabet', 'carrot'] is correctly sorted.
 
 const alphabetize = (arr) => {
   // Solution code here...
-  arr.sort( (a, b)=> {
-    if (a > b) {
-        return -1;
-    }
-    if (b > a) {
-        return 1;
-    }
-    return 0;
-});
+  let newArr=arr.sort();
+
+  return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -120,9 +113,16 @@ Here is an example of the input:
 
 const sortByPrice = (arr) => {
   // Solution code here...
-  arr.sort((a, b)=> {
-    return parseFloat(a.price) - parseFloat(b.price);
-});
+  let newArr=arr.sort((a,b)=>{
+    if (a.price < b.price) {
+      return -1;
+    }else if (a.price > b.price) {
+      return 1;
+    }else{
+      return 0;
+    }
+    });
+    return newArr;
 };
 
 
