@@ -10,7 +10,8 @@ const addTwo = (arr) => {
   // Solution code here...
   const array=[];
   for (let i = 0; i< arr.length; i++) {
-array.push(arr[i]+2);      }
+array.push(arr[i]+2);  
+        }
 return array;
 };
 
@@ -70,10 +71,13 @@ For example, notInFirstArray([1,2,3], [1,2,3,4]) returns [4].
 
 const notInFirstArray = (forbiddenValues, arr) => {
   // Solution code here...
-  let result = arr.filter(element =>{
-    return (forbiddenValues.indexOf(element===-1))
-  })
-  return result;
+  let newArr = arr.filter(
+    function(element) {
+      return this.indexOf(element) < 0;
+    },
+    forbiddenValues
+);
+  return newArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
