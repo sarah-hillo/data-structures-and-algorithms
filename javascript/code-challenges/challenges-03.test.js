@@ -11,7 +11,7 @@ const addTwo = (arr) => {
   const array=[];
   for (let i = 0; i< arr.length; i++) {
 array.push(arr[i]+2);  
-        }
+  }
 return array;
 };
 
