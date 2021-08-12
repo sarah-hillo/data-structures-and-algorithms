@@ -56,10 +56,21 @@ let characters = [
 
 const sortByChildren = (charArray) => {
   // Solution code here...
-  charArray.sort((a,b) => {
-    return a.children.length - b.children.length;
+  let newArr = charArray.sort((a, b) => {
+
+    if (a.children.length !== b.children.length) {
+      return a.children.length - b.children.length;
+    }
+    if (a.children.length == b.children.length) {
+      if (a.house > b.house) {
+        return 1;
+      } else {
+        return -1;
+      }
+    }
+
   });
-  return charArray;
+  return newArr;
 };
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 2
@@ -70,9 +81,9 @@ Write a function named containsW that takes in a string. This function should us
 
 const containsW = (str) => {
   // Solution code here...
-  let regex=/w/g;
-  let res=regex.test(str);
-  return res;
+  let reg1 = /(w)/g;
+  return reg1.test(str);
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -89,9 +100,8 @@ For example:
 
 const isNum = (input) => {
   // Solution code here...
-  let regex = /(\d)/g;
-  let result = regex.test(input);
-  return result;
+  let reg1 = /\d/g;
+  return reg1.test(input);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -103,9 +113,8 @@ Write a function named containsWorld that takes in a string or number of any len
 
 const containsWorld = (input) => {
   // Solution code here...
-  let regex = /world/g;
-  let result = regex.test(input);
-  return result;
+  let reg1 = /world/g;
+  return reg1.test(input);
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -118,9 +127,12 @@ Return an array containing all the matches.
 
 const isCapitalized = (str) => {
   // Solution code here...
-  let regex=/\b[A-Z][a-z]+/g;
-  let res=str.match(regex)|| [];
-  return res;
+  let reg1 = /\b[A-Z](\w)*/g;
+  let newArr = str.match(reg1);
+  if (newArr == null) {
+    newArr = [];
+  }
+  return newArr;
   
 };
 
@@ -132,8 +144,12 @@ Write a function named citiesAtoJ that takes in an array of city names and uses 
 
 const citiesAtoJ = (arr) => {
   // Solution code here...
-  let regex=/^[A-J]/
-  return arr.filter(element=>regex.test(element));
+  let reg1 = /^[A-J]/g;
+  let newArr = arr.filter((item) => {
+    return item.match(reg1);
+
+  });
+  return newArr;
 
 };
 
